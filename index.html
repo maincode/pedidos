@@ -1,10 +1,54 @@
 <html ng-app>
     <head>
         <title>Lista de compras</title>
-		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.11/angular.min.js"></script>    
+      	<meta charset="utf-8">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+        <!-- Optional theme -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+		<script src="http://code.angularjs.org/1.0.1/angular-1.0.1.min.js"></script>
+		<script src="app/pedidos.js"></script>   
 	</head>
     <body>
-    	<input type="text" ng-model="nome">
-        <p>hello, Tableless! Meu nome : {{ nome }}</p>
+
+    	<div class="container-fluid">
+	      <div class="row">
+	        <div class="col-sm-3 col-md-2 sidebar">
+	          <ul class="nav nav-sidebar">
+	            <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
+	            <li><a href="#">Reports</a></li>
+	            <li><a href="#">Analytics</a></li>
+	            <li><a href="#">Export</a></li>
+	          </ul>
+	        </div>
+	    </div>
+	    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+
+    	<div class="row placeholders">
+	        <form class="form-inline" name="formItem">
+	          <input type="text" ng-model="item.telefone" placeholder="telefone">
+	          <button class="btn btn-primary" ng-click="adicionaItem()">adicionar ítem</button>
+	        </form>
+      	</div>
+    	<div class="table-responsive" ng-controller="ListaPedidoController">
+		    <table id="lista-pedidos" class="table table-striped">
+		      <thead>
+		        <tr>
+		          <th>Telefone</th>
+		          <th>status</th>
+		        </tr>
+		      </thead>
+		      <tbody>
+		        <tr ng-repeat="item in itens">
+		          <td><strong>{{ item.telefone }}</strong></td>
+		          <td>{{ item.status }}</td>
+		        </tr>
+		      </tbody>
+		    </table>
+		</div>
+		</div>
+	</div>
     </body>
 </html>
