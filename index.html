@@ -1,54 +1,62 @@
-<html ng-app>
+<html ng-app >
     <head>
         <title>Lista de compras</title>
       	<meta charset="utf-8">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-        <!-- Optional theme -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+      	<link rel="stylesheet" href = "http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+      	<link href="dashboard.css" rel="stylesheet">
 
-		<!-- Latest compiled and minified JavaScript -->
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-		<script src="http://code.angularjs.org/1.0.1/angular-1.0.1.min.js"></script>
+		<script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
 		<script src="app/pedidos.js"></script>   
 	</head>
     <body>
-
-    	<div class="container-fluid">
-	      <div class="row">
-	        <div class="col-sm-3 col-md-2 sidebar">
-	          <ul class="nav nav-sidebar">
-	            <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
-	            <li><a href="#">Reports</a></li>
-	            <li><a href="#">Analytics</a></li>
-	            <li><a href="#">Export</a></li>
-	          </ul>
+    	<nav class="navbar navbar-inverse navbar-fixed-top">
+	      <div class="container-fluid">
+	        <div class="navbar-header">
+	          <a class="navbar-brand" href="#">Nome da Loja</a>
 	        </div>
-	    </div>
-	    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+	        <div id="navbar" class="navbar-collapse collapse">
+	          <form class="navbar-form navbar-right">
+	            <input type="text" class="form-control" placeholder="Search...">
+	          </form>
+	        </div>
+	      </div>
+	    </nav>
 
-    	<div class="row placeholders">
-	        <form class="form-inline" name="formItem">
-	          <input type="text" ng-model="item.telefone" placeholder="telefone">
-	          <button class="btn btn-primary" ng-click="adicionaItem()">adicionar ítem</button>
-	        </form>
-      	</div>
-    	<div class="table-responsive" ng-controller="ListaPedidoController">
-		    <table id="lista-pedidos" class="table table-striped">
-		      <thead>
-		        <tr>
-		          <th>Telefone</th>
-		          <th>status</th>
-		        </tr>
-		      </thead>
-		      <tbody>
-		        <tr ng-repeat="item in itens">
-		          <td><strong>{{ item.telefone }}</strong></td>
-		          <td>{{ item.status }}</td>
-		        </tr>
-		      </tbody>
-		    </table>
+		<div class="container-fluid" ng-controller="ListaPedidosController">
+			<div class="row">
+
+				<div class="col-sm-3 col-md-2 sidebar">
+		          <ul class="nav nav-sidebar">
+		            <li class="active"><a href="#">Delivery <span class="sr-only">(current)</span></a></li>
+		            <li><a href="#">Balcão</a></li>
+		          </ul>
+		        </div>
+
+		        <div class="col-sm-0 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+		        	<h1 class="page-header">Pedidos</h1>
+
+			        <form name="formItem">
+			          <input type="text" ng-model="item.telefone" placeholder="telefone">
+			          <button class="btn btn-primary" ng-click="adicionaItem()">adicionar</button>
+			        </form>
+          			<div class="table-responsive">
+					    <table id="lista-pedidos" class="table table-striped">
+					      <thead>
+					        <tr>
+					          <th><strong>Telefone</strong></th>
+					          <th><strong>status</strong></th>
+					        </tr>
+					      </thead>
+					      <tbody>
+					        <tr ng-repeat="item in itens">
+					          <td><strong>{{ item.telefone }}</strong></td>
+					          <td><span class="label label-success">{{ item.status }}</span></td>
+					        </tr>
+					      </tbody>
+						</table>
+					</div>
+				</div>
+			</div>
 		</div>
-		</div>
-	</div>
     </body>
 </html>
