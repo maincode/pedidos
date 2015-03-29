@@ -52,7 +52,7 @@
 					      <tbody>
 					        <tr ng-repeat="item in itens">
 					          <td><strong>{{ item.telefone }}</strong></td>
-					          <td><button class="btn btn-success" ng-click="sendPush()">{{ item.status }}</button></td>
+					          <td><button class="{{ item.btnClass }}" ng-click="sendPush2($index)">{{ item.status }}</button></td>
 					        </tr>
 					      </tbody>
 						</table>
