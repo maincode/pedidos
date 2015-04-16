@@ -19,7 +19,9 @@
 		Parse.Push.send({
 		  where: query, // Set our Installation query
 		  data: {
-		    alert: "seu pedido está sendo preparado."		  
+		    alert: "seu pedido está sendo preparado.",
+		    action: "status.time", 
+		    order_id: "mHaKYzRKLp"	  
 			}
 		}, {
 		  success: function() {
@@ -43,7 +45,9 @@
 		Parse.Push.send({
 		  where: query, // Set our Installation query
 		  data: {
-		    alert: "seu pedido saiu para entrega."		  
+		    alert: "seu pedido saiu para entrega.",
+		    action: "status.time", 
+		    order_id: "mHaKYzRKLp"	  
 			}
 		}, {
 		  success: function() {
